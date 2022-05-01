@@ -130,6 +130,32 @@ void convert_attrstr(char *attr_str,
 	}
 }
 
+static int convert_attrstr_to_colorspace(char *attr_str)
+{
+	if (strstr(attr_str, "420"))
+		return COLORSPACE_YUV420;
+	else if (strstr(attr_str, "422"))
+		return COLORSPACE_YUV422;
+	else if (strstr(attr_str, "444"))
+		return COLORSPACE_YUV444;
+	else if (strstr(attr_str, "rgb"))
+		return COLORSPACE_RGB444;
+	else
+		return  COLORSPACE_RESERVED;
+}
+
+static int convert_attrstr_to_colordepth(char *attr_str)
+{
+	if (strstr(attr_str, "12bit"))
+		return 12;
+	else if (strstr(attr_str, "10bit"))
+		return 10;
+	else if (strstr(attr_str, "8bit"))
+		return 8;
+	else
+		return COLORDEPTH_RESERVED;
+}
+
 static void build_hdmitx_attr_str(char *attr_str, u32 format, u32 bit_depth)
 {
 	const char *colorspace;
@@ -488,19 +514,19 @@ static int am_hdmitx_connector_atomic_get_property
 	struct am_hdmi_tx *am_hdmi = connector_to_am_hdmi(connector);
 	struct am_hdmitx_connector_state *hdmitx_state =
 		to_am_hdmitx_connector_state(state);
-	struct hdmitx_color_attr *attr = &hdmitx_state->color_attr_para;
+	//struct hdmitx_color_attr *attr = &hdmitx_state->color_attr_para;
 	char attr_force[16];
 
 	am_hdmi_info.hdmitx_dev->get_attr(attr_force);
-	convert_attrstr(attr_force, attr);
+
 	if (property == am_hdmi->update_attr_prop) {
 		*val = 0;
 		return 0;
 	} else if (property == am_hdmi->color_space_prop) {
-		*val = attr->colorformat;
+		*val = convert_attrstr_to_colorspace(attr_force);
 		return 0;
 	} else if (property == am_hdmi->color_depth_prop) {
-		*val = attr->bitdepth;
+		*val = convert_attrstr_to_colordepth(attr_force);
 		return 0;
 	} else if (property == am_hdmi->avmute_prop) {
 		*val = hdmitx_state->avmute;
@@ -1073,8 +1099,8 @@ void meson_hdmitx_encoder_atomic_mode_set(struct drm_encoder *encoder,
 	if (am_hdmi_info.android_path)
 		return;
 
-	DRM_DEBUG_KMS("%s: enter\n", __func__);
-	DRM_INFO("%s\n", __func__);
+	DRM_INFO("%s enter:attr[%d-%d]\n", __func__,
+		attr->colorformat, attr->bitdepth);
 	meson_hdmitx_decide_eotf_type(meson_crtc_state, hdmitx_state);
 
 	/*check force attr info: from uboot set or debugfs;
@@ -1084,9 +1110,8 @@ void meson_hdmitx_encoder_atomic_mode_set(struct drm_encoder *encoder,
 	if (attr_force_debugfs) {
 		attr_force_debugfs = false;
 		convert_attrstr(attr_debugfs, attr);
-		am_hdmi_info.hdmitx_dev->setup_attr(attr_debugfs);
 		DRM_INFO("debugfs attr\n");
-		goto end;
+		return;
 	}
 
 	if (hdmitx_state->color_force) {
@@ -1111,7 +1136,7 @@ void meson_hdmitx_encoder_atomic_mode_set(struct drm_encoder *encoder,
 				update_attr = false;
 			} else {
 				update_attr = true;
-				DRM_DEBUG_KMS("%s: force attr fail[%d-%d]\n",
+				DRM_INFO("%s: force attr fail[%d-%d]\n",
 					__func__, attr->colorformat, attr->bitdepth);
 			}
 		} else {
@@ -1126,10 +1151,6 @@ void meson_hdmitx_encoder_atomic_mode_set(struct drm_encoder *encoder,
 	}
 
 	meson_hdmitx_setup_color_attr(attr);
-
-end:
-	DRM_INFO("[%s]end\n", __func__);
-
 }
 
 void meson_hdmitx_encoder_atomic_enable(struct drm_encoder *encoder,
@@ -1143,6 +1164,7 @@ void meson_hdmitx_encoder_atomic_enable(struct drm_encoder *encoder,
 		&am_hdmi_info.base.connector);
 	struct am_hdmitx_connector_state *meson_conn_state =
 		to_am_hdmitx_connector_state(conn_state);
+	//struct hdmitx_color_attr *attr = &meson_conn_state->color_attr_para;
 
 	if (vmode == VMODE_HDMI) {
 		DRM_INFO("[%s]\n", __func__);
@@ -1150,6 +1172,8 @@ void meson_hdmitx_encoder_atomic_enable(struct drm_encoder *encoder,
 		DRM_INFO("[%s] fail! vmode:%d\n", __func__, vmode);
 		return;
 	}
+
+	//meson_hdmitx_setup_color_attr(attr);
 
 	if (meson_crtc_state->uboot_mode_init == 1 &&
 		meson_conn_state->update != 1)
