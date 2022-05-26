@@ -1,0 +1,301 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2019 Amlogic, Inc. All rights reserved.
+ */
+
+/ {
+
+	custom_maps:custom_maps {
+		mapnum = <8>;
+		map0 = <&map_0>;
+		map1 = <&map_1>;
+		map2 = <&map_2>;
+		map3 = <&map_3>;
+		map4 = <&map_4>;
+		map5 = <&map_5>;
+		map6 = <&map_6>;
+		map7 = <&map_7>;
+		map_0: map_0{
+			mapname = "amlogic-remote-1";
+			customcode = <0xfe01>;
+			release_delay = <57>;
+			size  = <42>;   /*keymap size*/
+			keymap = <REMOTE_KEY(0x1e, KEY_0)
+				REMOTE_KEY(0x00, KEY_POWER)
+				REMOTE_KEY(0x13, KEY_1)
+				REMOTE_KEY(0x12, KEY_2)
+				REMOTE_KEY(0x10, KEY_3)
+				REMOTE_KEY(0x17, KEY_4)
+				REMOTE_KEY(0x16, KEY_5)
+				REMOTE_KEY(0x14, KEY_6)
+				REMOTE_KEY(0x1b, KEY_7)
+				REMOTE_KEY(0x1a, KEY_8)
+				REMOTE_KEY(0x18, KEY_9)
+				REMOTE_KEY(0x59, KEY_UP)
+				REMOTE_KEY(0x51, KEY_DOWN)
+				REMOTE_KEY(0x54, KEY_LEFT)
+				REMOTE_KEY(0x55, KEY_ENTER)
+				REMOTE_KEY(0x15, KEY_RIGHT)
+				REMOTE_KEY(0x04, KEY_PAGEUP)
+				REMOTE_KEY(0x06, KEY_PAGEDOWN)
+				REMOTE_KEY(0x41, KEY_MUTE)
+				REMOTE_KEY(0x5c, KEY_HOME)
+				REMOTE_KEY(0x58, 125)
+				REMOTE_KEY(0x50, 121)
+				REMOTE_KEY(0x4c, 120)
+				REMOTE_KEY(0x0d, 122)
+				REMOTE_KEY(0x11, 123)
+				REMOTE_KEY(0x03, 119)
+				REMOTE_KEY(0x05, 128)
+				REMOTE_KEY(0x0a, 75)
+				REMOTE_KEY(0x4d, 76)
+				REMOTE_KEY(0x0e, 77)
+				REMOTE_KEY(0x44, 59)
+				REMOTE_KEY(0x07, 63)
+				REMOTE_KEY(0x0c, 64)
+				REMOTE_KEY(0x1d, 65)
+				REMOTE_KEY(0x09, 133)
+				REMOTE_KEY(0x1c, 137)
+				REMOTE_KEY(0x01, 69)
+				REMOTE_KEY(0x48, KEY_VOLUMEUP)
+				REMOTE_KEY(0x0B, KEY_VOLUMEDOWN)
+				REMOTE_KEY(0x19, KEY_BACK)
+				REMOTE_KEY(0x2a, KEY_BACKSPACE)
+				REMOTE_KEY(0x42, KEY_F6)>;
+		};
+
+		map_1: map_1{
+			mapname = "amlogic-remote-2";
+			customcode = <0x4a69>;
+			release_delay = <80>;
+			size  = <21>;
+			keymap = <REMOTE_KEY(0x70, KEY_9)
+				REMOTE_KEY(0x71, KEY_8)
+				REMOTE_KEY(0x72, KEY_7)
+				REMOTE_KEY(0x73, KEY_6)
+				REMOTE_KEY(0x74, KEY_5)
+				REMOTE_KEY(0x75, KEY_4)
+				REMOTE_KEY(0x76, KEY_1)
+				REMOTE_KEY(0x77, KEY_0)
+				REMOTE_KEY(0x78, KEY_A)
+				REMOTE_KEY(0x79, KEY_B)
+				REMOTE_KEY(0x7A, KEY_C)
+				REMOTE_KEY(0x7B, KEY_D)
+				REMOTE_KEY(0x7C, KEY_E)
+				REMOTE_KEY(0x7D, KEY_F6)
+				REMOTE_KEY(0x7E, KEY_F7)
+				REMOTE_KEY(0x7F, KEY_F8)
+				REMOTE_KEY(0x80, KEY_F9)
+				REMOTE_KEY(0x81, KEY_F10)
+				REMOTE_KEY(0x82, KEY_NUMLOCK)
+				REMOTE_KEY(0x83, KEY_2)
+				REMOTE_KEY(0x84, KEY_3)>;
+		};
+
+		map_2: map_2{
+			mapname = "amlogic-remote-3";
+			customcode = <0xbd02>;
+			release_delay = <80>;
+			size  = <17>;
+			keymap = <REMOTE_KEY(0xca,103)
+				REMOTE_KEY(0xd2,108)
+				REMOTE_KEY(0x99,105)
+				REMOTE_KEY(0xc1,106)
+				REMOTE_KEY(0xce,97)
+				REMOTE_KEY(0x45,116)
+				REMOTE_KEY(0xc5,133)
+				REMOTE_KEY(0x80,113)
+				REMOTE_KEY(0xd0,15)
+				REMOTE_KEY(0xd6,125)
+				REMOTE_KEY(0x95,102)
+				REMOTE_KEY(0xdd,104)
+				REMOTE_KEY(0x8c,109)
+				REMOTE_KEY(0x89,131)
+				REMOTE_KEY(0x9c,130)
+				REMOTE_KEY(0x9a,120)
+				REMOTE_KEY(0xcd,121)>;
+		};
+
+        map_3: map_3{
+            mapname = "amlogic-remote-4";
+            customcode = <0xff00>;
+            release_delay = <80>;
+            size  = <31>;
+            keymap = <REMOTE_KEY(0x21,KEY_POWER)
+				REMOTE_KEY(0x23,KEY_VOLUMEUP)
+				REMOTE_KEY(0x24,KEY_VOLUMEDOWN)
+				REMOTE_KEY(0xA6,KEY_INFO)
+				REMOTE_KEY(0x25,KEY_MENU)
+				REMOTE_KEY(0x33,KEY_CHANNELUP)
+				REMOTE_KEY(0x34,KEY_CHANNELDOWN)
+				REMOTE_KEY(0x15,KEY_UP)
+				REMOTE_KEY(0x16,KEY_DOWN)
+				REMOTE_KEY(0x17,KEY_LEFT)
+				REMOTE_KEY(0x18,KEY_RIGHT)
+				REMOTE_KEY(0x19,KEY_ENTER)
+				REMOTE_KEY(0x48,KEY_BACK)
+				REMOTE_KEY(0x47,KEY_HOME)
+				REMOTE_KEY(0x61,362)
+				REMOTE_KEY(0x49,KEY_F9)
+				REMOTE_KEY(0x4A,580)
+				REMOTE_KEY(0x46,217)
+				REMOTE_KEY(0x63,250)
+				REMOTE_KEY(0x1A,KEY_F10)
+				REMOTE_KEY(0x01,KEY_1)
+				REMOTE_KEY(0x02,KEY_2)
+				REMOTE_KEY(0x03,KEY_3)
+				REMOTE_KEY(0x04,KEY_4)
+				REMOTE_KEY(0x05,KEY_5)
+				REMOTE_KEY(0x06,KEY_6)
+				REMOTE_KEY(0x07,KEY_7)
+				REMOTE_KEY(0x08,KEY_8)
+				REMOTE_KEY(0x09,KEY_9)
+				REMOTE_KEY(0x0A,KEY_0)
+				REMOTE_KEY(0xED,KEY_BLUETOOTH)>;
+		};
+
+        map_4: map_4{
+            mapname = "amlogic-remote-5";
+            customcode = <0x021d>;                  //B22A,G20
+            release_delay = <80>;
+            size  = <43>;
+            keymap = <REMOTE_KEY(0x00,KEY_POWER)
+				REMOTE_KEY(0x48,KEY_VOLUMEUP)
+				REMOTE_KEY(0x0B,KEY_VOLUMEDOWN)
+				REMOTE_KEY(0x04,104)
+				REMOTE_KEY(0x06,109)
+				REMOTE_KEY(0x59,KEY_UP)
+				REMOTE_KEY(0x51,KEY_DOWN)
+				REMOTE_KEY(0x54,KEY_LEFT)
+				REMOTE_KEY(0x15,KEY_RIGHT)
+				REMOTE_KEY(0x55,KEY_ENTER)
+				REMOTE_KEY(0x19,KEY_BACK)
+				REMOTE_KEY(0x5c,KEY_HOME)
+				REMOTE_KEY(0x41,KEY_MUTE)
+				REMOTE_KEY(0x03,119)
+				REMOTE_KEY(0x1f,122)
+				REMOTE_KEY(0x02,123)
+				REMOTE_KEY(0x4c,120)
+				REMOTE_KEY(0x50,121)
+				REMOTE_KEY(0x01,128)
+				REMOTE_KEY(0x13,KEY_1)
+				REMOTE_KEY(0x12,KEY_2)
+				REMOTE_KEY(0x10,KEY_3)
+				REMOTE_KEY(0x17,KEY_4)
+				REMOTE_KEY(0x16,KEY_5)
+				REMOTE_KEY(0x14,KEY_6)
+				REMOTE_KEY(0x1b,KEY_7)
+				REMOTE_KEY(0x1a,KEY_8)
+				REMOTE_KEY(0x18,KEY_9)
+				REMOTE_KEY(0x1e,KEY_0)
+				REMOTE_KEY(0x58,64)
+				REMOTE_KEY(0x09,181)
+				REMOTE_KEY(0x11,65)
+				REMOTE_KEY(0x08,166)
+				REMOTE_KEY(0x1c,171)
+				REMOTE_KEY(0x45,66)
+				REMOTE_KEY(0x07,67)
+				REMOTE_KEY(0x25,66)
+				REMOTE_KEY(0x49,133)
+				REMOTE_KEY(0x20,179)
+				REMOTE_KEY(0x0a,398)
+				REMOTE_KEY(0x4d,189)
+				REMOTE_KEY(0x0e,400)
+				REMOTE_KEY(0x0c,401)>;
+        };
+		
+		map_5: map_5{
+            mapname = "amlogic-remote-6";
+            customcode = <0x80dd>;                  
+            release_delay = <80>;
+            size  = <30>;
+            keymap = <REMOTE_KEY(0xDC,KEY_POWER)
+				REMOTE_KEY(0x9C,KEY_MUTE)
+				REMOTE_KEY(0x98,KEY_HOME)
+				REMOTE_KEY(0x97,KEY_PLAYPAUSE)
+				REMOTE_KEY(0x93,64)
+				REMOTE_KEY(0x82,KEY_BACK)
+				REMOTE_KEY(0x95,KEY_MENU)
+				REMOTE_KEY(0x96,65)
+				REMOTE_KEY(0xCA,KEY_UP)	
+				REMOTE_KEY(0x99,KEY_LEFT)
+				REMOTE_KEY(0xCE,KEY_ENTER)
+				REMOTE_KEY(0xC1,KEY_RIGHT)
+				REMOTE_KEY(0xD2,KEY_DOWN)
+				REMOTE_KEY(0x80,KEY_VOLUMEUP)
+				REMOTE_KEY(0x92,66) 
+				REMOTE_KEY(0x85,KEY_CHANNELUP) 
+				REMOTE_KEY(0x81,KEY_VOLUMEDOWN)
+				REMOTE_KEY(0x86,KEY_CHANNELDOWN) 
+				REMOTE_KEY(0x01,KEY_1)
+				REMOTE_KEY(0x02,KEY_2)
+				REMOTE_KEY(0x03,KEY_3)
+				REMOTE_KEY(0x04,KEY_4)
+				REMOTE_KEY(0x05,KEY_5)
+				REMOTE_KEY(0x06,KEY_6)
+				REMOTE_KEY(0x07,KEY_7)
+				REMOTE_KEY(0x08,KEY_8)
+				REMOTE_KEY(0x09,KEY_9)
+				REMOTE_KEY(0x3F,67) 
+				REMOTE_KEY(0x00,KEY_0)
+				REMOTE_KEY(0x37,167) >;
+
+			};
+
+	        map_6: map_6{
+            mapname = "amlogic-remote-7";
+            customcode = <0xf708>;
+            release_delay = <80>;
+            size  = <29>;
+                keymap = <REMOTE_KEY(0x0A,KEY_POWER)
+		      REMOTE_KEY(0x05,KEY_F4)
+		      REMOTE_KEY(0x09,KEY_F5)
+		      REMOTE_KEY(0x62,KEY_F6)
+                      REMOTE_KEY(0x58,KEY_VOLUMEUP)
+                      REMOTE_KEY(0x5D,KEY_VOLUMEDOWN)
+                      REMOTE_KEY(0x5A,KEY_CHANNELUP)
+                      REMOTE_KEY(0x5F,KEY_CHANNELDOWN)
+                      REMOTE_KEY(0x00,KEY_UP)
+                      REMOTE_KEY(0x01,KEY_DOWN)
+                      REMOTE_KEY(0x03,KEY_LEFT)
+                      REMOTE_KEY(0x02,KEY_RIGHT)
+                      REMOTE_KEY(0x1F,KEY_ENTER)
+                      REMOTE_KEY(0x1C,KEY_BACK)
+                      REMOTE_KEY(0x0C,KEY_HOME)
+                      REMOTE_KEY(0x0D,KEY_MUTE)
+                      REMOTE_KEY(0x30,KEY_BACKSPACE)
+                      REMOTE_KEY(0x66,580)
+                      REMOTE_KEY(0x11,KEY_1)
+                      REMOTE_KEY(0x12,KEY_2)
+                      REMOTE_KEY(0x13,KEY_3)
+                      REMOTE_KEY(0x14,KEY_4)
+                      REMOTE_KEY(0x15,KEY_5)
+                      REMOTE_KEY(0x16,KEY_6)
+                      REMOTE_KEY(0x17,KEY_7)
+                      REMOTE_KEY(0x18,KEY_8)
+                      REMOTE_KEY(0x19,KEY_9)
+                      REMOTE_KEY(0x10,KEY_0)
+					  REMOTE_KEY(0x74,88)>;
+               };
+		map_7: map_7{
+            mapname = "amlogic-remote-8";
+            customcode = <0xb740>;                  
+            release_delay = <80>;
+            size  = <13>;
+           keymap = <REMOTE_KEY(0x00,KEY_F2)
+				REMOTE_KEY(0x04,KEY_F4)
+				REMOTE_KEY(0x30,KEY_F8)
+				REMOTE_KEY(0x31,KEY_F9)
+				REMOTE_KEY(0x32,KEY_F10)
+                REMOTE_KEY(0x12,KEY_SLASH)
+                REMOTE_KEY(0x01,233)
+				REMOTE_KEY(0x44,168)
+                REMOTE_KEY(0x45,KEY_PLAY)
+                REMOTE_KEY(0x46,KEY_FASTFORWARD)
+                REMOTE_KEY(0x48,234)
+                REMOTE_KEY(0x49,KEY_STOP)
+				REMOTE_KEY(0x05,KEY_F5)>;
+
+			};
+	};
+};
